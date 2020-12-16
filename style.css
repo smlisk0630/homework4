@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  height: 100%;
+  margin: auto;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f9fbfd;
+}
+
+.btn {
+    border: none;
+    background-color:purple;
+    color: white;
+    margin: auto;
+    padding: 0 0.5rem 0 0.5rem;
+  }
+
+.btn:hover {
+    background-color:purple;
+    opacity:0.6;
+}
