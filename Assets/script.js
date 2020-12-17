@@ -55,13 +55,51 @@ var quizQuestions = [
     }
 ];
 
+function buildQuiz() {
+    // stores HTML output
+    var output = [];
+
+    myQuestions.forEach(
+        (currentQuestion, questionNumber) => {
+
+            // stores list of potential answers
+            var answers = [];
+
+            // for each possible answer...
+            for(number in currentQuestion.answers)
+
+            // add a button
+            answers.push(
+                `<label>
+                    <button type="button" class="btn btn-primary btn-sm" name="question${questionNumber}" value="${number}">
+                    </button>
+                    ${number} :
+                    ${currentQuestion.answers[number]}
+                </label>`
+            );
+        }
+
+        // add the question and its answers to the output
+        output.push(
+            `<section class="question"> ${currentQuestion.question} </section>`
+            `<section class="answers"> ${answers.join('')} </section>`
+        );
+    );
+
+    // combine output list into string and put on page
+    quizContainer.innerHTML = output.join('');
+
+}
+
+
+
 quizContainer.addEventListener("click", function(event) {
     if(event.target.matches("button")) {
 
     }
 });
 
-function setTime() {
+/*function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
@@ -72,7 +110,7 @@ function setTime() {
         }
     
       }, 1000);
-    }
+    }*/
 
 function startQuiz() {
     
@@ -81,7 +119,36 @@ function startQuiz() {
 startBtn.addEventListener("click", startQuiz);
 
 function showResults() {
+    // get answer containers from the quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
 
+    // track user's answers
+    var numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+        
+        // find selected answer
+        var answerContainer = answerContainers[questionNumber];
+        var selector = `button[name=question${questionNumber}]:checked`;
+        var userAnswer = (answerContainer.querySelector(selector) || {}).nodeValue;
+
+        // if answer is correct
+        if(userAnswer === currentQuestion.correctAnswer) {
+            
+            // add to number of correct answers
+            numCorrect++;
+
+            // show correct container
+        }
+        // if answer is incorrect or blank
+        else{
+            // show wrong or blank container
+        }
+    });
+
+    // show number of correct answers out of total answers
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 }
 
 submitBtn.addEventListener("click", showResults);
