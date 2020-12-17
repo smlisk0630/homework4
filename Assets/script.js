@@ -2,6 +2,13 @@ var quizContainer = document.getElementById("quiz");
 var startBtn = document.getElementById("start");
 var submitBtn = document.getElementById("submit");
 
+quizContainer.addEventListener("click", function(event) {
+    if(event.target.matches("button")) {
+        
+    }
+}
+)
+
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
