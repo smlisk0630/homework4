@@ -55,7 +55,7 @@ var quizQuestions = [
     }
 ];
 
-function buildQuiz() {
+function startQuiz() {
     // stores HTML output
     var output = [];
 
@@ -91,31 +91,6 @@ function buildQuiz() {
 
 }
 
-
-
-quizContainer.addEventListener("click", function(event) {
-    if(event.target.matches("button")) {
-
-    }
-});
-
-/*function setTime() {
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-        timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
-    
-        if(secondsLeft === 0) {
-          clearInterval(timerInterval);
-          sendMessage();
-        }
-    
-      }, 1000);
-    }*/
-
-function startQuiz() {
-    
-}
-
 startBtn.addEventListener("click", startQuiz);
 
 function showResults() {
@@ -131,7 +106,7 @@ function showResults() {
         // find selected answer
         var answerContainer = answerContainers[questionNumber];
         var selector = `button[name=question${questionNumber}]:checked`;
-        var userAnswer = (answerContainer.querySelector(selector) || {}).nodeValue;
+        var userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
         // if answer is correct
         if(userAnswer === currentQuestion.correctAnswer) {
@@ -173,3 +148,16 @@ function renderToDos() {
         todoList.appendChild(li);
     }
 }*/
+
+/*function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
+    
+        if(secondsLeft === 0) {
+          clearInterval(timerInterval);
+          sendMessage();
+        }
+    
+      }, 1000);
+    }*/
