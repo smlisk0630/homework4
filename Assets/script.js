@@ -68,11 +68,11 @@ function startQuiz() {
             // for each possible answer...
             for(number in currentQuestion.answers)
 
-            // adds button
+            // adds button and allows selection of answers
             answers.push(
                 `<label>
-                    <button type="button" class="btn btn-primary btn-sm" name="question${questionNumber}" value="${number}">
-                    </button>
+                    <input type="button" class="btn btn-primary btn-sm" name="question${questionNumber}" value="${number}">
+                    </input>
                     ${number} :
                     ${currentQuestion.answers[number]}
                 </label>`
@@ -104,7 +104,7 @@ function showResults() {
         
         // finds selected answer
         var answerContainer = answerContainers[questionNumber];
-        var selector = `button[name=question${questionNumber}]:checked`;
+        var selector = `button.click([name=question${questionNumber}])`;
         var userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
         // if answer is correct...
