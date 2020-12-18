@@ -103,6 +103,7 @@
         var quizContainer = document.getElementById("quiz");
         var startBtn = document.getElementById("start");
         var submitBtn = document.getElementById("submit");
+        var resultsContainer = document.getElementById('results');
 
         var quizQuestions = [
             {
