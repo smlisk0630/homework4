@@ -3,6 +3,15 @@
 *::after {
   box-sizing: border-box;
 }
+  .question{
+    margin-bottom: 10px;
+  }
+  
+  .answers {
+    margin-bottom: 20px;
+    text-align: left;
+    display: inline;
+  }
 
 .slide {
     display: block;

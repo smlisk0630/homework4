@@ -27,7 +27,7 @@
                 output.push(
                     `<section class="slide">
                     <section class="question"> ${currentQuestion.question} </section>
-                    <section class="answers"> ${answers.join('')} </section>
+                    <section class="answers"> ${answers.join(' ')} </section>
                     </section>`
                     );
                 }
