@@ -80,9 +80,11 @@ function startQuiz() {
 
             // adds the question and its answers to the output
             output.push(
-                `<section class="question"> ${currentQuestion.question} </section>`,
-                `<section class="answers"> ${answers.join('')} </section>`
-            );
+                `<section class="slide">
+                <section class="question"> ${currentQuestion.question} </section>
+                <section class="answers"> ${answers.join('')} </section>
+                </section>`
+                );
 
     // combines output list into string and puts on page
     quizContainer.innerHTML = output.join('');
