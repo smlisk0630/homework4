@@ -76,19 +76,17 @@ function startQuiz() {
                     ${number} :
                     ${currentQuestion.answers[number]}
                 </label>`
-            );
-        }
-    );
+        );
 
         // add the question and its answers to the output
         output.push(
             `<section class="question"> ${currentQuestion.question} </section>`
             `<section class="answers"> ${answers.join('')} </section>`
         );
-
     // combine output list into string and put on page
     quizContainer.innerHTML = output.join('');
-
+}
+    );
 }
 
 startBtn.addEventListener("click", startQuiz);
