@@ -56,7 +56,7 @@ var quizQuestions = [
 ];
 
 function startQuiz() {
-    // stores HTML output
+    // stores output
     var output = [];
 
     quizQuestions.forEach(
@@ -68,7 +68,7 @@ function startQuiz() {
             // for each possible answer...
             for(number in currentQuestion.answers)
 
-            // add a button
+            // adds button
             answers.push(
                 `<label>
                     <button type="button" class="btn btn-primary btn-sm" name="question${questionNumber}" value="${number}">
@@ -76,14 +76,15 @@ function startQuiz() {
                     ${number} :
                     ${currentQuestion.answers[number]}
                 </label>`
-        );
+            );
 
-        // add the question and its answers to the output
-        output.push(
-            `<section class="question"> ${currentQuestion.question} </section>`
-            `<section class="answers"> ${answers.join('')} </section>`
-        );
-    // combine output list into string and put on page
+            // adds the question and its answers to the output
+            output.push(
+                `<section class="question"> ${currentQuestion.question} </section>`,
+                `<section class="answers"> ${answers.join('')} </section>`
+            );
+
+    // combines output list into string and puts on page
     quizContainer.innerHTML = output.join('');
 }
     );
@@ -92,35 +93,35 @@ function startQuiz() {
 startBtn.addEventListener("click", startQuiz);
 
 function showResults() {
-    // get answer containers from the quiz
+    // gets answer containers from the quiz
     var answerContainers = quizContainer.querySelectorAll('.answers');
 
-    // track user's answers
+    // tracks user's answers
     var numCorrect = 0;
 
     // for each question...
     quizQuestions.forEach( (currentQuestion, questionNumber) => {
         
-        // find selected answer
+        // finds selected answer
         var answerContainer = answerContainers[questionNumber];
         var selector = `button[name=question${questionNumber}]:checked`;
         var userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-        // if answer is correct
+        // if answer is correct...
         if(userAnswer === currentQuestion.correctAnswer) {
             
-            // add to number of correct answers
+            // adds to number of correct answers
             numCorrect++;
 
-            // show correct container
+            // shows correct container
         }
-        // if answer is incorrect or blank
+        // if answer is incorrect or blank...
         else{
-            // show wrong or blank container
+            // shows wrong or blank container
         }
     });
 
-    // show number of correct answers out of total answers
+    // shows number of correct answers out of total answers
     resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
 }
 
