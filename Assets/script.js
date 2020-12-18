@@ -59,7 +59,7 @@ function startQuiz() {
     // stores HTML output
     var output = [];
 
-    myQuestions.forEach(
+    quizQuestions.forEach(
         (currentQuestion, questionNumber) => {
 
             // stores list of potential answers
@@ -78,13 +78,13 @@ function startQuiz() {
                 </label>`
             );
         }
+    );
 
         // add the question and its answers to the output
         output.push(
             `<section class="question"> ${currentQuestion.question} </section>`
             `<section class="answers"> ${answers.join('')} </section>`
         );
-    );
 
     // combine output list into string and put on page
     quizContainer.innerHTML = output.join('');
@@ -101,7 +101,7 @@ function showResults() {
     var numCorrect = 0;
 
     // for each question...
-    myQuestions.forEach( (currentQuestion, questionNumber) => {
+    quizQuestions.forEach( (currentQuestion, questionNumber) => {
         
         // find selected answer
         var answerContainer = answerContainers[questionNumber];
@@ -123,7 +123,7 @@ function showResults() {
     });
 
     // show number of correct answers out of total answers
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
 }
 
 submitBtn.addEventListener("click", showResults);
