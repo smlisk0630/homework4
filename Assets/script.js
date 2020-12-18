@@ -17,10 +17,8 @@
                 // adds button and allows selection of answers
                 answers.push(
                     `<label>
-                        <input type="button" class="btn btn-primary btn-sm" name="question${questionNumber}" value="${number}">
+                        <input type="button" class="btn btn-primary btn-sm" name="question${questionNumber}" value="${currentQuestion.answers[number]}">
                         </input>
-                        ${number} :
-                        ${currentQuestion.answers[number]}
                     </label>`
                 );
             }
