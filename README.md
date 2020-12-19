@@ -1,4 +1,4 @@
-# Homework 4: JavaScript Quiz
+# JavaScript Quiz
 ![Issues](https://img.shields.io/github/issues/smlisk0630/homework3)
 ![Forks](https://img.shields.io/github/forks/smlisk0630/homework3)
 
