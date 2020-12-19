@@ -197,6 +197,8 @@ function renderToDos() {
     }
 }*/
 
+/* to review forEach method, see code in 05-third-party-apis, 02-JSDrinkList */
+
 /*function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
