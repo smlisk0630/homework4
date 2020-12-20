@@ -3,7 +3,7 @@
 *::after {
   box-sizing: border-box;
 }
-
+/*
 body {
     font-family: sans-serif;
     background-color: #f9fbfd;
@@ -15,16 +15,44 @@ body {
     margin: auto;
 }
 
-.question {
+/* quiz wrapper */
+#quiz {
+    font-family: sans-serif;
+    background-color: #f9fbfd;
+}
+
+/* wrapper for each question */
+#quiz.question {
     margin-bottom: 10px;
 }
 
+/* question */
+#quiz-wrap h1 {
+    font: 22px;
+    margin: 5px 0;
+}
+
+/* answers */
 .answers {
     margin-bottom: 20px;
     text-align: left;
     display: inline;
 }
 
+.startBtn {
+    border: none;
+    background-color:purple;
+    color: white;
+    margin: auto;
+    padding: 0 0.5rem 0 0.5rem;
+  }
+
+.btn:hover {
+    background-color:purple;
+    opacity:0.6;
+}
+
+/*
 .slide {
     display: block;
     position: relative;
@@ -39,17 +67,4 @@ body {
 .active-slide {
     opacity: 1;
     z-index: 2;
-}
-
-.btn {
-    border: none;
-    background-color:purple;
-    color: white;
-    margin: auto;
-    padding: 0 0.5rem 0 0.5rem;
-  }
-
-.btn:hover {
-    background-color:purple;
-    opacity:0.6;
 }

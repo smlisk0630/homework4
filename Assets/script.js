@@ -17,7 +17,7 @@
                 // adds button and allows selection of answers
                 answers.push(
                     `<label>
-                        <input type="button" class="btn btn-primary btn-sm" name="question${questionNumber}" value="${currentQuestion.answers[number]}">
+                        <input type="button" class="btn btn-primary btn-sm" name="question + document.querySelector('#questionNumber')" value="document.querySelector('#currentQuestion.answers[number]}')">
                         </input>
                     </label>`
                 );
@@ -26,8 +26,8 @@
                 // adds the question and its answers to the output
                 output.push(
                     `<section class="slide">
-                    <section class="question"> ${currentQuestion.question} </section>
-                    <section class="answers"> ${answers.join(' ')} </section>
+                    <section class="question"> document.querySelector('currentQuestion.question') </section>
+                    <section class="answers"> document.querySelector('answers.join(' ')') </section>
                     </section>`
                     );
                 }
@@ -40,7 +40,10 @@
             // gets answer containers from the quiz
             var answerContainers = quizContainer.querySelectorAll('.answers');
         
-            // tracks user's answers
+            // tracks all of user's answers
+            var answerCounter = 0;
+
+            // tracks user's correct answers
             var numCorrect = 0;
         
             // for each question...
@@ -106,53 +109,53 @@
         var quizQuestions = [
             {
                 question: "Commonly used data types DO NOT include:",
-                answers: {
-                    1: "strings",
-                    2: "booleans",
-                    3: "alerts",
-                    4: "numbers"
-                },
-                correctAnswer: "3"
+                answers: [
+                    "strings",
+                    "booleans",
+                    "alerts",
+                    "numbers"
+                ],
+                correctAnswer: 2
             },
             {
                 question: "The condition in an if/else statement is enclosed within ___.",
-                answers: {
-                    1: "quotes",
-                    2: "curly brackets",
-                    3: "parentheses",
-                    4: "square brackets"
-                },
-                correctAnswer: "3"
+                answers: [
+                    "quotes",
+                    "curly brackets",
+                    "parentheses",
+                    "square brackets"
+                ],
+                correctAnswer: 2
             },
             {
                 question: "Arrays in JavaScript can be used to store ___.",
-                answers: {
-                    1: "numbers and strings",
-                    2: "other arrays",
-                    3: "booleans",
-                    4: "all of the above"
-                },
-                correctAnswer: "4"
+                answers: [
+                    "numbers and strings",
+                    "other arrays",
+                    "booleans",
+                    "all of the above"
+                ],
+                correctAnswer: 3
             },
             {
                 question: "String values must be enclosed within ___ when being assigned to variables.",
-                answers: {
-                    1: "commas",
-                    2: "curly brackets",
-                    3: "quotes",
-                    4: "parentheses"
-                },
-                correctAnswer: "3"
+                answers: [
+                    "commas",
+                    "curly brackets",
+                    "quotes",
+                    "parentheses"
+                ],
+                correctAnswer: 2
             },
             {
                 question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-                answers: {
-                    1: "JavaScript",
-                    2: "terminal/bash",
-                    3: "for loops",
-                    4: "console.log"
-                },
-                correctAnswer: "4"
+                answers: [
+                    "JavaScript",
+                    "terminal/bash",
+                    "for loops",
+                    "console.log"
+                ],
+                correctAnswer: 3
             }
         ];
 
