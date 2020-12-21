@@ -7,7 +7,9 @@ var quiz = {
 
         // loop through all questions
         // create all necessary HTML elements
-        for (var index in quizQuestions) {
+        quizQuestions.forEach(
+            function(quest, index) {
+
             // the current question number
             var number = parseInt(index) + 1;
             //a section wrapper to hold the questions and options
@@ -17,11 +19,17 @@ var quiz = {
 
             // the questions
             var question = document.createElement("h4");
-            question.innerHTML = number + " " + quizQuestions[index]['q'];
+            question.displaySetting = qWrap.style.display;
+            if(index === 0){
+                qWrap.style.display = "block";
+            } 
+            
+            //question.style.display = none;
+            question.innerHTML = number + " " + quest['q'];
             qWrap.appendChild(question);
 
             // the answers
-            for(var aIndex in quizQuestions[index]['a']) {
+            quest['a'].forEach(function(answerText, aIndex) {
                 // the label tag
                 var label = document.createElement("label");
                 qWrap.appendChild(label);
@@ -32,6 +40,7 @@ var quiz = {
                 answer.value = aIndex;
                 answer.required = true;
                 answer.classList.add("aquiz");
+                answer.style.backgroundColor = "purple";
 
                 answer.name = "quiz-" + number;
                 label.appendChild(answer);
@@ -39,11 +48,11 @@ var quiz = {
                 // add answer text
                 var aText = document.createTextNode(quizQuestions[index]['cA'][aIndex]);
                 label.appendChild(aText);
-            }
+            });
 
             // add question to main quiz wrapper
             wrapper.appendChild(qWrap);
-        }
+        });
     },
 
     // quiz.submit(): handle calculations when user submits quiz
@@ -81,19 +90,17 @@ var startBtn = document.createElement("button");
     startBtn.className = "startBtn";
 
     // adds start button
-    var stBtn = document.getElementById("quiz");
-    stBtn.appendChild(startBtn);
+    var quizSec = document.getElementById("quiz");
+        quizSec.appendChild(startBtn);
 
     // adds event handler
-    startBtn.onclick = function() {
-        document.getElementById("quiz").addEventListener("start", quiz.start);
-    }
+    startBtn.addEventListener("click", quiz.start);
 
 // add submit button and event handler to quiz wrapper
 var submitBtn = document.createElement("button");
     submitBtn.type = "button";
     submitBtn.innerHTML = "Submit";
-    submitBtn.className = "startBtn";
+    submitBtn.className = "submitBtn";
     
     var sbtBtn = document.getElementById("quiz");
     sbtBtn.appendChild(submitBtn);
@@ -157,6 +164,3 @@ var quizQuestions = [
         cA: 3
     }
 ];
-
-// start
-startBtn.addEventListener("click", quiz.start());

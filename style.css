@@ -7,18 +7,32 @@
 body {
     font-family: sans-serif;
     background-color: #f9fbfd;
+}*/
+
+.time-container {
+    text-align: left;
 }
 
+.highscore-container {
+    text-align: right;
+}
+
+
 .quiz-container {
-    display: flex;
+    display: block;
     height: 100%;
-    margin: auto;
+    margin: 100px 500px;
 }
 
 /* quiz wrapper */
 #quiz {
     font-family: sans-serif;
     background-color: #f9fbfd;
+}
+
+.question {
+    display: none;
+    margin: 100px 500px;
 }
 
 /* wrapper for each question */
@@ -43,9 +57,15 @@ body {
     border: none;
     background-color:purple;
     color: white;
-    margin: auto;
-    padding: 0 0.5rem 0 0.5rem;
+    margin: 100px 500px;
   }
+
+.submitBtn {
+    border: none;
+    background-color:purple;
+    color: white;
+    margin: 100px 500px;
+} 
 
 .btn:hover {
     background-color:purple;
