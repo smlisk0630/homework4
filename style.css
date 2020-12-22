@@ -54,11 +54,26 @@ body {
 }
 
 .startBtn {
+    /* display: none; */
     border: none;
     background-color:purple;
     color: white;
     margin: 100px 500px;
   }
+
+.prevBtn {
+    border: none;
+    background-color:purple;
+    color: white;
+    margin: 100px 500px;
+  }
+  
+.nextBtn {
+    border: none;
+    background-color:purple;
+    color: white;
+    margin: 100px 500px;
+  }  
 
 .submitBtn {
     border: none;

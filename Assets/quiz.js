@@ -2,6 +2,12 @@ var quiz = {
     
     start: function() {
 
+        // add question class to start function
+        document.querySelector(".quiz-container").classList.add("question");
+
+        // add startBtn class to start function
+        document.querySelector(".quiz-container").classList.add("startBtn");
+
         // get the HTML quiz wrapper
         var wrapper = document.getElementById("quiz");
 
@@ -17,14 +23,13 @@ var quiz = {
             // CSS class
             qWrap.classList.add("question");
 
-            // the questions
+            // the questions and styting
             var question = document.createElement("h4");
             question.displaySetting = qWrap.style.display;
             if(index === 0){
                 qWrap.style.display = "block";
             } 
             
-            //question.style.display = none;
             question.innerHTML = number + " " + quest['q'];
             qWrap.appendChild(question);
 
@@ -53,6 +58,23 @@ var quiz = {
             // add question to main quiz wrapper
             wrapper.appendChild(qWrap);
         });
+    },
+
+    //go to previous question
+    prev: function() {
+
+        // get the HTML quiz wrapper
+        var wrapper = document.getElementById("quiz");
+
+
+    },
+
+    // go to next question
+    next: function() {
+
+        // get the HTML quiz wrapper
+        var wrapper = document.getElementById("quiz");
+
     },
 
     // quiz.submit(): handle calculations when user submits quiz
@@ -89,12 +111,38 @@ var startBtn = document.createElement("button");
     startBtn.innerHTML = "Start Quiz";
     startBtn.className = "startBtn";
 
-    // adds start button
+    // adds start button to quiz section
     var quizSec = document.getElementById("quiz");
         quizSec.appendChild(startBtn);
 
     // adds event handler
     startBtn.addEventListener("click", quiz.start);
+
+// add previous button and event handler to quiz wrapper
+var prevBtn = document.createElement("button");
+    prevBtn.type = "button";
+    prevBtn.innerHTML = "Go Back";
+    prevBtn.className = "prevBtn";
+
+    // adds previous button
+    var quizSec2 = document.getElementById("quiz");
+    quizSec2.appendChild(prevBtn);
+
+    // adds event handler
+    prevBtn.addEventListener("click", quiz.prev);
+
+// add next button and event handler to quiz wrapper
+var nextBtn = document.createElement("button");
+    nextBtn.type = "button";
+    nextBtn.innerHTML = "Next";
+    nextBtn.className = "nextBtn";
+
+    // adds next button
+    var quizSec3 = document.getElementById("quiz");
+    quizSec3.appendChild(nextBtn);
+
+    // adds event handler
+    nextBtn.addEventListener("click", quiz.next);
 
 // add submit button and event handler to quiz wrapper
 var submitBtn = document.createElement("button");
@@ -105,9 +153,7 @@ var submitBtn = document.createElement("button");
     var sbtBtn = document.getElementById("quiz");
     sbtBtn.appendChild(submitBtn);
 
-    submitBtn.onclick = function() {
-        document.getElementById("quiz").addEventListener("submit", quiz.submit);
-    }
+    submitBtn.addEventListener("submit", quiz.submit);
 
 var resultsContainer = document.getElementById('results');
 
