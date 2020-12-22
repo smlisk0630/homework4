@@ -61,6 +61,13 @@ body {
     margin: 100px 500px;
   }
 
+.startButton {
+    border: none;
+    background-color:purple;
+    color: white;
+    margin: 100px 500px;
+}  
+
 .prevBtn {
     border: none;
     background-color:purple;
