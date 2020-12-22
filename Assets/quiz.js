@@ -32,32 +32,40 @@ var quiz = {
             if(index === 0){
                 qWrap.style.display = "block";
             } 
-            
+            // change the HTML content of question to
+            // the current question number + space + index q of quest parameter
             question.innerHTML = number + " " + quest['q'];
             // adds newly-created qWrap element to the DOM and appends question
             // as its last child element
             qWrap.appendChild(question);
 
             // the answers
+            // loop through all answers in the quizQuestions function
+            // (index a of quest parameter)
             quest['a'].forEach(function(answerText, aIndex) {
-                // the label tag
+                // create an element called "label" and store it in the label variable
                 var label = document.createElement("label");
+                // add the label variable as a child of the qWrap element on the DOM
                 qWrap.appendChild(label);
 
-                // the answer tag
+                // create an element called "input" and store it in the answer variable
                 var answer = document.createElement("input");
-                answer.type = "button";
-                answer.value = aIndex;
-                answer.required = true;
-                answer.classList.add("aquiz");
-                answer.style.backgroundColor = "purple";
+                    // set the properties of the answer object
+                    answer.type = "button";
+                    answer.value = aIndex;
+                    answer.required = true;
+                    answer.classList.add("aquiz");
+                    answer.style.backgroundColor = "purple";
+                    answer.name = "quiz-" + number;
+                    answer.text = quest['a'][aIndex];
 
-                answer.name = "quiz-" + number;
-                label.appendChild(answer);
+                    // add answer as a child of the label element on the DOM
+                    label.appendChild(answer);
 
                 // add answer text
-                var aText = document.createTextNode(quizQuestions[index]['cA'][aIndex]);
+                var aText = document.createTextNode(answer.text);
                 label.appendChild(aText);
+                console.log(label);
             });
 
             // add question to main quiz wrapper

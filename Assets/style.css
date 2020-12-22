@@ -27,7 +27,6 @@ body {
 /* quiz wrapper */
 #quiz {
     font-family: sans-serif;
-    background-color: #f9fbfd;
 }
 
 .question {
@@ -40,11 +39,11 @@ body {
     margin-bottom: 10px;
 }
 
-/* question */
+/* question
 #quiz-wrap h1 {
     font: 22px;
     margin: 5px 0;
-}
+} */
 
 /* answers */
 .answers {
@@ -58,55 +57,33 @@ body {
     border: none;
     background-color:purple;
     color: white;
-    margin: 100px 500px;
   }
 
-.startButton {
+/* .startButton {
     border: none;
     background-color:purple;
     color: white;
-    margin: 100px 500px;
-}  
+}   */
 
 .prevBtn {
     border: none;
     background-color:purple;
     color: white;
-    margin: 100px 500px;
   }
   
 .nextBtn {
     border: none;
     background-color:purple;
     color: white;
-    margin: 100px 500px;
   }  
 
 .submitBtn {
     border: none;
     background-color:purple;
     color: white;
-    margin: 100px 500px;
 } 
 
 .btn:hover {
     background-color:purple;
     opacity:0.6;
-}
-
-/*
-.slide {
-    display: block;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.active-slide {
-    opacity: 1;
-    z-index: 2;
 }
