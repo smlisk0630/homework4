@@ -48,16 +48,17 @@ var quiz = {
                 // add the label variable as a child of the qWrap element on the DOM
                 qWrap.appendChild(label);
 
-                // create an element called "input" and store it in the answer variable
+                // create an element called "input" and store it in the answer object
                 var answer = document.createElement("input");
-                    // set the properties of the answer object
-                    answer.type = "button";
-                    answer.value = aIndex;
-                    answer.required = true;
-                    answer.classList.add("aquiz");
-                    answer.style.backgroundColor = "purple";
-                    answer.name = "quiz-" + number;
-                    answer.text = quest['a'][aIndex];
+                answer.classList.add("startBtn");
+
+                // set the properties of the answer object
+                answer.text = quest['a'][aIndex];
+                answer.type = "button";
+                answer.value = quest['a'][aIndex];
+                answer.required = true;
+                answer.name = "quiz-" + number;
+                answer.setAttribute("data-value", aIndex);
 
                     // add answer as a child of the label element on the DOM
                     label.appendChild(answer);
@@ -65,36 +66,39 @@ var quiz = {
                 // add answer text
                 var aText = document.createTextNode(answer.text);
                 label.appendChild(aText);
-                console.log(label);
-            });
 
             // add question to main quiz wrapper
             wrapper.appendChild(qWrap);
-        });
+        
+        // get the selected answer
+        var selectedAnswer = answer.getAttribute("data-value");
+
+        // get all selected answers
+        var allSelected = selectedAnswer[aIndex];
+    });
+    });
     },
 
-    //go to previous question
-    prev: function() {
+    // //go to previous question
+    // prev: function() {
 
-        // get the HTML quiz wrapper
-        var wrapper = document.getElementById("quiz");
+    //     // get the HTML quiz wrapper
+    //     var wrapper = document.getElementById("quiz");
 
 
-    },
+    // },
 
     // go to next question
     next: function() {
 
         // get the HTML quiz wrapper
         var wrapper = document.getElementById("quiz");
-        // get the selected answer
-        var selAnswer = document.querySelector("aIndex");
-        // a section wrapper to hold the answers
+        // create a section wrapper to hold the answers
         var aWrap = document.createElement("section");
         // add selected answer to section wrapper
-        var aWrap = selAnswer;
+        var aWrap = selectedAnswer;
 
-        // add answer to section wrapper
+        // add section wrapper to quiz wrapper
         wrapper.appendChild(aWrap);
 
     },
@@ -102,16 +106,12 @@ var quiz = {
     // quiz.submit(): handle calculations when user submits quiz
     submit: function(event) {
 
-        // get all selected answers
-        var selected = document.querySelectorAll(".aquiz:checked");
-
-        // get score
-        var score = 0;
-        for (var index in quizQuestions) {
-            if (selected[index].value == quizQuestions[index]['cA']) {
-                score++;
-            }
-        }
+        // // get score
+        // var score = 0;
+        // for (var index in quizQuestions) {
+        //     if (allSelected[index].value == 
+        //     }
+        // }
 
         // calculate score
         var total = selected.length;
@@ -133,6 +133,7 @@ var startBtn = document.createElement("button");
     // adds start button to quiz section
     var quizSec = document.getElementById("quiz");
         quizSec.appendChild(startBtn);
+        startBtn.classList.add("startBtn");
 
     // adds event handler
     startBtn.addEventListener("click", quiz.start);
@@ -234,7 +235,7 @@ var quizQuestions = [
 // variables to keep track of quiz state
 var time = quizQuestions.length * 15;
 var timerId;
-var aIndex = quizQuestions[a];
+var aIndex = quizQuestions['a'];
 
 // variables to reference DOM elements
 var timerEl = document.getElementById("time");

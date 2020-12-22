@@ -72,34 +72,6 @@
             resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
         }
 
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active-slide');
-            slides[n].classList.add('active-slide');
-            currentSlide = n;
-        
-            if(currentSlide === 0) {
-                previousBtn.style.display = 'none';
-            } else {
-                previousBtn.style.display = 'inline-block';
-            }
-        
-            if(currentSlide === slides.length-1) {
-                nextBtn.style.display = 'none';
-                submitBtn.style.display = 'inline-block';
-            } else {
-                nextBtn.style.display = 'inline-block';
-                submitBtn.style.display = 'none';
-            }
-        }
-        
-        function showNextSlide() {
-            showSlide(currentSlide + 1);
-        }
-        
-        function showPreviousSlide() {
-            showSlide(currentSlide - 1);
-        }
-
         // variables
         var quizContainer = document.getElementById("quiz");
         var startBtn = document.getElementById("start");
