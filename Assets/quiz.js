@@ -53,11 +53,13 @@ var quizQuestions = [
 ];
 
 var isDisplay = true;
+var prevIndex = -1;
 
 var quiz = {
     
     start: function() {
-
+        isDisplay = true;
+        console.log("start: function()");
         // add question class to start function
         document.querySelector(".quiz-container").classList.add("question");
 
@@ -68,10 +70,16 @@ var quiz = {
         // create all necessary HTML elements
         quizQuestions.forEach(
             function(quest, index) {
-                if(isDisplay = true) {
-
+                if(isDisplay === true && index > prevIndex) {
+                    console.log("forEach");
+                    console.log("index" + index);
+                    console.log("isDisplay" + isDisplay);
             // the current question number
             var number = parseInt(index) + 1;
+
+            // shows only one question when next button is clicked
+            isDisplay = false;
+            prevIndex = index;
 
             // creates a section wrapper to hold the questions and answers
             var qWrap = document.createElement("section");
@@ -110,7 +118,7 @@ var quiz = {
                 answer.classList.add("startBtn");
 
                 // set the properties of the answer object
-                answer.text = quest['a'][aIndex];
+                answer.text = '  ';
                 answer.type = "button";
                 answer.value = quest['a'][aIndex];
                 answer.required = true;
@@ -132,6 +140,7 @@ var quiz = {
 
         // get all selected answers
         var allSelected = selectedAnswer[aIndex];
+
     });
     }}) 
     },

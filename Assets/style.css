@@ -30,7 +30,7 @@ body {
 }
 
 .question {
-    display: none;
+    /* display: none; */
     margin: 100px 500px;
 }
 
@@ -57,6 +57,7 @@ body {
     border: none;
     background-color:purple;
     color: white;
+    margin: 0 10px;
   }
 
 /* .startButton {
@@ -70,12 +71,14 @@ body {
     border: none;
     background-color:purple;
     color: white;
+    margin: 0 10px;
   }
   
 .nextBtn {
     border: none;
     background-color:purple;
     color: white;
+    margin: 0 10px;
   }
   
 /* .nextButton {
@@ -89,6 +92,7 @@ body {
     border: none;
     background-color:purple;
     color: white;
+    margin: 0 10px;
 } 
 
 .btn:hover {
