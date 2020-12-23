@@ -55,6 +55,14 @@ var quizQuestions = [
 var isDisplay = true;
 var prevIndex = -1;
 
+// variables to keep track of quiz state
+var time = quizQuestions.length * 15;
+var timerId;
+var aIndex = quizQuestions['a'];
+
+// variables to reference DOM elements
+var timerEl = document.getElementById("time");
+
 var quiz = {
     
     start: function() {
@@ -73,9 +81,7 @@ var quiz = {
         quizQuestions.forEach(
             function(quest, index) {
                 if(isDisplay === true && index > prevIndex) {
-                    console.log("forEach");
-                    console.log("index" + index);
-                    console.log("isDisplay" + isDisplay);
+
             // the current question number
             var number = parseInt(index) + 1;
 
@@ -111,7 +117,7 @@ var quiz = {
             // the answers
             // loop through all answers in the quizQuestions function
             // (index a of quest parameter)
-            quest['a'].forEach(function(answerText, aIndex) {
+            quest['a'].forEach(function(aIndex) {
                 // create an element called "label" and store it in the label variable
                 var label = document.createElement("label");
                 // add the label variable as a child of the qWrap element on the DOM
@@ -245,13 +251,3 @@ var submitBtn = document.createElement("button");
     submitBtn.addEventListener("submit", quiz.submit);
 
 var resultsContainer = document.getElementById('results');
-
-
-
-// variables to keep track of quiz state
-var time = quizQuestions.length * 15;
-var timerId;
-var aIndex = quizQuestions['a'];
-
-// variables to reference DOM elements
-var timerEl = document.getElementById("time");
