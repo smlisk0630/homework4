@@ -58,6 +58,7 @@ body {
     background-color:purple;
     color: white;
     margin: 0 10px;
+    border-radius: 10px;
   }
 
 /* .startButton {
@@ -72,6 +73,7 @@ body {
     background-color:purple;
     color: white;
     margin: 0 10px;
+    border-radius: 10px;
   }
   
 .nextBtn {
@@ -79,6 +81,7 @@ body {
     background-color:purple;
     color: white;
     margin: 0 10px;
+    border-radius: 10px;
   }
   
 /* .nextButton {
@@ -93,6 +96,7 @@ body {
     background-color:purple;
     color: white;
     margin: 0 10px;
+    border-radius: 10px;
 } 
 
 .btn:hover {
