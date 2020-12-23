@@ -1,3 +1,59 @@
+var quizQuestions = [
+    {
+        // q: question; a: answers; cA: correct answer
+        q: "Commonly used data types DO NOT include:",
+        a: [
+            "strings",
+            "booleans",
+            "alerts",
+            "numbers"
+        ],
+        cA: 2
+    },
+    {
+        q: "The condition in an if/else statement is enclosed within ___.",
+        a: [
+            "quotes",
+            "curly brackets",
+            "parentheses",
+            "square brackets"
+        ],
+        cA: 2
+    },
+    {
+        q: "Arrays in JavaScript can be used to store ___.",
+        a: [
+            "numbers and strings",
+            "other arrays",
+            "booleans",
+            "all of the above"
+        ],
+        cA: 3
+    },
+    {
+        q: "String values must be enclosed within ___ when being assigned to variables.",
+        a: [
+            "commas",
+            "curly brackets",
+            "quotes",
+            "parentheses"
+        ],
+        cA: 2
+    },
+    {
+        q: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        a: [
+            "JavaScript",
+            "terminal/bash",
+            "for loops",
+            "console.log"
+        ],
+        cA: 3
+    }
+];
+
+var isDisplay = true;
+
 var quiz = {
     
     start: function() {
@@ -12,6 +68,7 @@ var quiz = {
         // create all necessary HTML elements
         quizQuestions.forEach(
             function(quest, index) {
+                if(isDisplay = true) {
 
             // the current question number
             var number = parseInt(index) + 1;
@@ -76,10 +133,13 @@ var quiz = {
         // get all selected answers
         var allSelected = selectedAnswer[aIndex];
     });
-    });
+    }}) 
     },
+    
 
-    // //go to previous question
+
+
+        // //go to previous question
     // prev: function() {
 
     //     // get the HTML quiz wrapper
@@ -87,21 +147,6 @@ var quiz = {
 
 
     // },
-
-    // go to next question
-    next: function() {
-
-        // get the HTML quiz wrapper
-        var wrapper = document.getElementById("quiz");
-        // create a section wrapper to hold the answers
-        var aWrap = document.createElement("section");
-        // add selected answer to section wrapper
-        var aWrap = selectedAnswer;
-
-        // add section wrapper to quiz wrapper
-        wrapper.appendChild(aWrap);
-
-    },
 
     // quiz.submit(): handle calculations when user submits quiz
     submit: function(event) {
@@ -139,7 +184,21 @@ var startBtn = document.createElement("button");
     startBtn.addEventListener("click", quiz.start);
     document.querySelector(".startButton").appendChild(startBtn);
 
-// add previous button and event handler to quiz wrapper
+// add next button and event handler to quiz wrapper
+var nextBtn = document.createElement("button");
+    nextBtn.type = "button";
+    nextBtn.innerHTML = "Next";
+    nextBtn.className = "nextBtn";
+
+    // adds next button
+    var quizSec3 = document.getElementById("quiz");
+    quizSec3.appendChild(nextBtn);
+    nextBtn.classList.add("nextBtn");
+
+    // adds event handler
+    nextBtn.addEventListener("click", quiz.start);
+
+    // add previous button and event handler to quiz wrapper
 var prevBtn = document.createElement("button");
     prevBtn.type = "button";
     prevBtn.innerHTML = "Go Back";
@@ -151,19 +210,6 @@ var prevBtn = document.createElement("button");
 
     // adds event handler
     prevBtn.addEventListener("click", quiz.prev);
-
-// add next button and event handler to quiz wrapper
-var nextBtn = document.createElement("button");
-    nextBtn.type = "button";
-    nextBtn.innerHTML = "Next";
-    nextBtn.className = "nextBtn";
-
-    // adds next button
-    var quizSec3 = document.getElementById("quiz");
-    quizSec3.appendChild(nextBtn);
-
-    // adds event handler
-    nextBtn.addEventListener("click", quiz.next);
 
 // add submit button and event handler to quiz wrapper
 var submitBtn = document.createElement("button");
@@ -178,59 +224,7 @@ var submitBtn = document.createElement("button");
 
 var resultsContainer = document.getElementById('results');
 
-var quizQuestions = [
-    {
-        // q: question; a: answers; cA: correct answer
-        q: "Commonly used data types DO NOT include:",
-        a: [
-            "strings",
-            "booleans",
-            "alerts",
-            "numbers"
-        ],
-        cA: 2
-    },
-    {
-        q: "The condition in an if/else statement is enclosed within ___.",
-        a: [
-            "quotes",
-            "curly brackets",
-            "parentheses",
-            "square brackets"
-        ],
-        cA: 2
-    },
-    {
-        q: "Arrays in JavaScript can be used to store ___.",
-        a: [
-            "numbers and strings",
-            "other arrays",
-            "booleans",
-            "all of the above"
-        ],
-        cA: 3
-    },
-    {
-        q: "String values must be enclosed within ___ when being assigned to variables.",
-        a: [
-            "commas",
-            "curly brackets",
-            "quotes",
-            "parentheses"
-        ],
-        cA: 2
-    },
-    {
-        q: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        a: [
-            "JavaScript",
-            "terminal/bash",
-            "for loops",
-            "console.log"
-        ],
-        cA: 3
-    }
-];
+
 
 // variables to keep track of quiz state
 var time = quizQuestions.length * 15;

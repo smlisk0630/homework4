@@ -60,6 +60,7 @@ body {
   }
 
 /* .startButton {
+    display: none;
     border: none;
     background-color:purple;
     color: white;
@@ -75,7 +76,14 @@ body {
     border: none;
     background-color:purple;
     color: white;
-  }  
+  }
+  
+/* .nextButton {
+    display: none;
+    border: none;
+    background-color:purple;
+    color: white;
+} */
 
 .submitBtn {
     border: none;
