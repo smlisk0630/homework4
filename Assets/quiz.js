@@ -58,6 +58,8 @@ var prevIndex = -1;
 var quiz = {
     
     start: function() {
+        var x=document.querySelector(".quiz-container");
+        x.setAttribute("style","display: none;");
         isDisplay = true;
         console.log("start: function()");
         // add question class to start function
@@ -85,6 +87,8 @@ var quiz = {
             var qWrap = document.createElement("section");
             // applies question class to qWrap element
             qWrap.classList.add("question");
+            // sets id that will be called later to hide element
+            qWrap.setAttribute("id","question"+index);
 
             // the questions and styting
             // creates an h4 element and stores it in question variable
@@ -96,7 +100,7 @@ var quiz = {
             // set its display style to "block"
             if(index === 0){
                 qWrap.style.display = "block";
-            } 
+            }
             // change the HTML content of question to
             // the current question number + space + index q of quest parameter
             question.innerHTML = number + " " + quest['q'];
@@ -134,6 +138,15 @@ var quiz = {
 
             // add question to main quiz wrapper
             wrapper.appendChild(qWrap);
+            
+            // calls id to hide question element
+            if (index > 0) {
+                console.log(index);
+                console.log("hide question# "+parseInt(index-1));
+                var wQuiz=document.getElementById("question"+ parseInt(index-1));
+                console.log(wQuiz);
+                wQuiz.setAttribute("style","display: none;");
+            };
         
         // get the selected answer
         var selectedAnswer = answer.getAttribute("data-value");
