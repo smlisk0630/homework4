@@ -17,8 +17,13 @@ body {
     text-align: right;
 }
 
-
 .quiz-container {
+    display: block;
+    height: 100%;
+    margin: 100px 500px;
+}
+
+.highscore-wrapper {
     display: block;
     height: 100%;
     margin: 100px 500px;
@@ -76,13 +81,13 @@ body {
     border-radius: 10px;
   }
   
-.nextBtn {
+/* .nextBtn {
     border: none;
     background-color:purple;
     color: white;
     margin: 0 10px;
     border-radius: 10px;
-  }
+  } */
   
 /* .nextButton {
     display: none;
@@ -92,12 +97,21 @@ body {
 } */
 
 .submitBtn {
+    display: none;
     border: none;
     background-color:purple;
     color: white;
     margin: 0 10px;
     border-radius: 10px;
-} 
+}
+
+#clear {
+    border: none;
+    background-color:purple;
+    color: white;
+    margin: 0 10px;
+    border-radius: 10px;
+}
 
 .btn:hover {
     background-color:purple;

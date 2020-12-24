@@ -150,19 +150,13 @@ var quiz = {
 
                         // calls id to hide question element
                         if (index > 0) {
-                            //console.log(index);
-                            //console.log("hide question# "+parseInt(index-1));
                             var wQuiz = document.getElementById("question" + parseInt(index - 1));
-                            //console.log(wQuiz);
                             wQuiz.setAttribute("style", "display: none;");
                         };
 
                         // get the selected answer
                         var selectedAnswerClick = answer.addEventListener("click", quiz.start);
                         //var selectedAnswer = answer.getAttribute("data-value");
-                        //1. Find logic to move to next question
-                        //2. Create new function and put logic in it
-                        //3. Put var selectedAnswerClick in it also
                     });
                 }
             })
@@ -173,8 +167,10 @@ var quiz = {
             time--;
 
             timerEl.innerHTML = time;
-            console.log(time);
 
+        }, 1000);
+
+        function nextQuestion() {
             // check if user guessed wrong
             if (this.value !== quizQuestions(index)) {
                 // penalize time
@@ -198,35 +194,37 @@ var quiz = {
             } else {
                 quizQuestions.question.innerHTML;
             }
-        });
+        }
 
         function quizEnd() {
+
+            nextQuestion();
             //stop timer
             clearInterval(timerId);
 
         }
-    }
+    },
 
-        // quiz.submit(): handle calculations when user submits quiz
-        //     submit: function(event) {
-
-        //         // get score
-        //         var score = 0;
-        //         for (var index in quizQuestions) {
-        //             if (allSelected[index].value == 
-        //             }
-        //         }
-
-        //         // calculate score
-        //         var total = selected.length;
-
-        //         // update and show score
-        //         html += "<section>You scored " + score + " out of " + total + "</section>";
-        //         document.getElementById("quiz-wrap").innerHTML = html;
-        // }
-        // };
-
-}    
+    saveHighscore: function() {
+        // get value of input box
+        answer.value;
+        // make sure value wasn't empty
+        if (initials !== "") {
+          // get saved scores from localstorage, or if not any, set to empty array
+            localStorage.getItem(newScore);
+          // format new score object for current user
+          var newScore = {
+            score: time,
+            initials: initials
+          };
+      
+          // save to localstorage
+          localStorage.setItem(newScore);
+          // redirect to next page
+          window.location.href = "highscores.html";
+        }
+    }      
+};
         // add start button and event handler to quiz wrapper
         // creates start button
         var startBtn = document.createElement("button");
@@ -246,32 +244,32 @@ var quiz = {
 
         // add next button and event handler to quiz wrapper
         // creates next button
-        var nextBtn = document.createElement("button");
-        nextBtn.type = "button";
-        nextBtn.innerHTML = "Next";
-        nextBtn.className = "nextBtn";
+        // var nextBtn = document.createElement("button");
+        // nextBtn.type = "button";
+        // nextBtn.innerHTML = "Next";
+        // nextBtn.className = "nextBtn";
 
-        // adds next button
-        var quizSec3 = document.getElementById("quiz");
-        quizSec3.appendChild(nextBtn);
-        nextBtn.classList.add("nextBtn");
+        // // adds next button
+        // var quizSec3 = document.getElementById("quiz");
+        // quizSec3.appendChild(nextBtn);
+        // nextBtn.classList.add("nextBtn");
 
-        // adds event handler
-        nextBtn.addEventListener("click", quiz.start);
+        // // adds event handler
+        // nextBtn.addEventListener("click", quiz.start);
 
         // add previous button and event handler to quiz wrapper
         // creates previous button
-        var prevBtn = document.createElement("button");
-        prevBtn.type = "button";
-        prevBtn.innerHTML = "Go Back";
-        prevBtn.className = "prevBtn";
+        // var prevBtn = document.createElement("button");
+        // prevBtn.type = "button";
+        // prevBtn.innerHTML = "Go Back";
+        // prevBtn.className = "prevBtn";
 
-        // adds previous button
-        var quizSec2 = document.getElementById("quiz");
-        quizSec2.appendChild(prevBtn);
+        // // adds previous button
+        // var quizSec2 = document.getElementById("quiz");
+        // quizSec2.appendChild(prevBtn);
 
-        // adds event handler
-        prevBtn.addEventListener("click", quiz.prev);
+        // // adds event handler
+        // prevBtn.addEventListener("click", quiz.prev);
 
         // add submit button and event handler to quiz wrapper
         // creates submit button
@@ -285,7 +283,8 @@ var quiz = {
         sbtBtn.appendChild(submitBtn);
 
         // adds event handler
-        submitBtn.addEventListener("submit", quiz.submit);
+        // user clicks button to submit initials
+        submitBtn.addEventListener("click", quiz.saveHighscore);
 
         // container for results
         var resultsContainer = document.getElementById('results');
