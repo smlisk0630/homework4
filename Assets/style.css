@@ -3,30 +3,34 @@
 *::after {
   box-sizing: border-box;
 }
-/*
-body {
-    font-family: sans-serif;
-    background-color: #f9fbfd;
-}*/
 
+/* time container styling */
 .time-container {
     text-align: left;
 }
 
+/* highscore container styling */
 .highscore-container {
     text-align: right;
 }
 
+/* quiz container styling */
 .quiz-container {
     display: block;
     height: 100%;
     margin: 100px 500px;
 }
 
+/* highscore wrapper styling */
 .highscore-wrapper {
     display: block;
     height: 100%;
     margin: 100px 500px;
+}
+
+/* styling for highscore wrapper heading */
+.highscore-wrapper h1 {
+    font-family: sans-serif;
 }
 
 /* quiz wrapper */
@@ -34,8 +38,8 @@ body {
     font-family: sans-serif;
 }
 
+/* question styling */
 .question {
-    /* display: none; */
     margin: 100px 500px;
 }
 
@@ -44,12 +48,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* question
-#quiz-wrap h1 {
-    font: 22px;
-    margin: 5px 0;
-} */
-
 /* answers */
 .answers {
     margin-bottom: 20px;
@@ -57,6 +55,7 @@ body {
     display: inline;
 }
 
+/* styling for start button */
 .startBtn {
     /* display: none; */
     border: none;
@@ -66,13 +65,7 @@ body {
     border-radius: 10px;
   }
 
-/* .startButton {
-    display: none;
-    border: none;
-    background-color:purple;
-    color: white;
-}   */
-
+/* styling for go back button */
 .prevBtn {
     border: none;
     background-color:purple;
@@ -81,21 +74,7 @@ body {
     border-radius: 10px;
   }
   
-/* .nextBtn {
-    border: none;
-    background-color:purple;
-    color: white;
-    margin: 0 10px;
-    border-radius: 10px;
-  } */
-  
-/* .nextButton {
-    display: none;
-    border: none;
-    background-color:purple;
-    color: white;
-} */
-
+/* styling for submit button */
 .submitBtn {
     display: none;
     border: none;
@@ -105,6 +84,7 @@ body {
     border-radius: 10px;
 }
 
+/* styling for clear id */
 #clear {
     border: none;
     background-color:purple;
@@ -113,6 +93,7 @@ body {
     border-radius: 10px;
 }
 
+/* styling for button hover */
 .btn:hover {
     background-color:purple;
     opacity:0.6;

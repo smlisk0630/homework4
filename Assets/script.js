@@ -125,11 +125,11 @@ var quiz = {
                         var label = document.createElement("label");
                         // add the label variable as a child of the qWrap element on the DOM
                         qWrap.appendChild(label);
-
+                    
                         // create an element called "input" and store it in the answer object
                         var answer = document.createElement("input");
                         answer.classList.add("startBtn");
-
+                    
                         // set the properties of the answer object
                         answer.text = '  ';
                         answer.type = "button";
@@ -137,23 +137,23 @@ var quiz = {
                         answer.required = true;
                         answer.name = "quiz-" + number;
                         answer.setAttribute("data-value", aIndex);
-
+                    
                         // add answer as a child of the label element on the DOM
                         label.appendChild(answer);
-
+                    
                         // add answer text
                         var aText = document.createTextNode(answer.text);
                         label.appendChild(aText);
-
+                    
                         // add question to main quiz wrapper
                         wrapper.appendChild(qWrap);
-
+                    
                         // calls id to hide question element
                         if (index > 0) {
                             var wQuiz = document.getElementById("question" + parseInt(index - 1));
                             wQuiz.setAttribute("style", "display: none;");
                         };
-
+                    
                         // get the selected answer
                         var selectedAnswerClick = answer.addEventListener("click", quiz.start);
                         //var selectedAnswer = answer.getAttribute("data-value");
@@ -207,7 +207,7 @@ var quiz = {
 
     saveHighscore: function() {
         // get value of input box
-        answer.value;
+        initialsEl.value;
         // make sure value wasn't empty
         if (initials !== "") {
           // get saved scores from localstorage, or if not any, set to empty array
@@ -241,35 +241,6 @@ var quiz = {
         // adds event handler
         startBtn.addEventListener("click", quiz.start);
         document.querySelector(".startButton").appendChild(startBtn);
-
-        // add next button and event handler to quiz wrapper
-        // creates next button
-        // var nextBtn = document.createElement("button");
-        // nextBtn.type = "button";
-        // nextBtn.innerHTML = "Next";
-        // nextBtn.className = "nextBtn";
-
-        // // adds next button
-        // var quizSec3 = document.getElementById("quiz");
-        // quizSec3.appendChild(nextBtn);
-        // nextBtn.classList.add("nextBtn");
-
-        // // adds event handler
-        // nextBtn.addEventListener("click", quiz.start);
-
-        // add previous button and event handler to quiz wrapper
-        // creates previous button
-        // var prevBtn = document.createElement("button");
-        // prevBtn.type = "button";
-        // prevBtn.innerHTML = "Go Back";
-        // prevBtn.className = "prevBtn";
-
-        // // adds previous button
-        // var quizSec2 = document.getElementById("quiz");
-        // quizSec2.appendChild(prevBtn);
-
-        // // adds event handler
-        // prevBtn.addEventListener("click", quiz.prev);
 
         // add submit button and event handler to quiz wrapper
         // creates submit button
